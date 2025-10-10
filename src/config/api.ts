@@ -1,0 +1,48 @@
+export const API_BASE_URL = "https://fakerapi.it/api/v1";
+
+export const API_ENDPOINTS = {
+  texts: (quantity: number) =>
+    `${API_BASE_URL}/texts?_quantity=${quantity}&_characters=200`,
+} as const;
+
+export interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
+
+interface FakerTextResponse {
+  status: string;
+  code: number;
+  total: number;
+  data: Array<{
+    title: string;
+    author: string;
+    genre: string;
+    content: string;
+  }>;
+}
+
+export async function fetchPost(index: number): Promise<Post> {
+  const response = await fetch(API_ENDPOINTS.texts(index), {
+    next: {
+      revalidate: 10,
+      tags: [`post-${index}`],
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  const result: FakerTextResponse = await response.json();
+  const data = result.data[0];
+
+  return {
+    id: index,
+    title: data.title,
+    body: `${data.content.substring(0, 150)}... — ${data.author} (${
+      data.genre
+    })`,
+  };
+}
