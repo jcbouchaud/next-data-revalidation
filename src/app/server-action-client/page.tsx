@@ -1,6 +1,6 @@
 "use client";
 
-import { ServerActionClientCard } from "@/components/server-action/ServerActionClientCard";
+import { ServerActionClientCard } from "@/components/server-action-client/ServerActionClientCard";
 import { RevalidatePageButton } from "@/components/RevalidatePageButton";
 import {
   revalidatePost,
