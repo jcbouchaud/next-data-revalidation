@@ -20,7 +20,6 @@ export function Card({ title, description, index }: CardProps) {
       <form action={formAction}>
         <input type="hidden" name="index" value={index} />
         <button
-          type="submit"
           className="mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors text-sm font-medium w-48 disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={isPending}
         >
