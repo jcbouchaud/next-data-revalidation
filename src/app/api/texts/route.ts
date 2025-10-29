@@ -45,7 +45,6 @@ function generateRandomText(characters: number): string {
 }
 
 export async function GET(request: NextRequest) {
-  console.log("fetching");
   const searchParams = request.nextUrl.searchParams;
   const quantity = parseInt(searchParams.get("quantity") || "1");
   const characters = parseInt(searchParams.get("characters") || "200");

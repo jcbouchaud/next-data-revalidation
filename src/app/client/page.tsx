@@ -1,8 +1,6 @@
-"use client";
-
 import { ClientCard } from "@/components/client/ClientCard";
 import { RevalidatePageButton } from "@/components/RevalidatePageButton";
-import { revalidatePost, revalidateClientPage } from "@/actions/revalidate";
+import { revalidateClientPage } from "@/actions/revalidate";
 
 export default function ClientPage() {
   return (

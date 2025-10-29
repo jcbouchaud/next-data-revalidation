@@ -6,6 +6,7 @@ import { revalidateTag, revalidatePath } from "next/cache";
 export async function revalidatePostAction(formData: FormData): Promise<void> {
   const index = formData.get("index") as string;
   revalidateTag(`post-${index}`);
+  console.log("revalidated post", index);
 }
 
 // Revalidate entire pages by path

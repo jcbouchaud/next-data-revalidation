@@ -1,8 +1,9 @@
 import { ServerCard } from "@/components/server/ServerCard";
 import { CardSkeleton } from "@/components/CardSkeleton";
 import { RevalidatePageButton } from "@/components/RevalidatePageButton";
-import { revalidatePost, revalidateServerPage } from "@/actions/revalidate";
+import { revalidateServerPage } from "@/actions/revalidate";
 import { Suspense } from "react";
+import { KeyedSuspense } from "@/components/KeyedSuspense";
 
 export default function ServerPage() {
   return (
@@ -17,21 +18,21 @@ export default function ServerPage() {
         </p>
         <RevalidatePageButton onRevalidate={revalidateServerPage} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Suspense fallback={<CardSkeleton />}>
+          <KeyedSuspense fallback={<CardSkeleton />}>
             <ServerCard index={1} />
-          </Suspense>
+          </KeyedSuspense>
 
-          <Suspense fallback={<CardSkeleton />}>
+          <KeyedSuspense fallback={<CardSkeleton />}>
             <ServerCard index={2} />
-          </Suspense>
+          </KeyedSuspense>
 
-          <Suspense fallback={<CardSkeleton />}>
+          <KeyedSuspense fallback={<CardSkeleton />}>
             <ServerCard index={3} />
-          </Suspense>
+          </KeyedSuspense>
 
-          <Suspense fallback={<CardSkeleton />}>
+          <KeyedSuspense fallback={<CardSkeleton />}>
             <ServerCard index={4} />
-          </Suspense>
+          </KeyedSuspense>
         </div>
       </div>
     </div>
