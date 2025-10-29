@@ -1,8 +1,20 @@
-export const API_BASE_URL = "https://fakerapi.it/api/v1";
+function getBaseURL() {
+  if (typeof window !== "undefined") {
+    // Client side
+    return "";
+  }
+  // Server side
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return "http://localhost:3000";
+}
+
+export const API_BASE_URL = getBaseURL();
 
 export const API_ENDPOINTS = {
   texts: (quantity: number) =>
-    `${API_BASE_URL}/texts?_quantity=${quantity}&_characters=200`,
+    `${API_BASE_URL}/api/texts?quantity=${quantity}&characters=200`,
 } as const;
 
 export interface Post {
