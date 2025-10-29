@@ -3,6 +3,7 @@ import { CardSkeleton } from "@/components/CardSkeleton";
 import { RevalidatePageButton } from "@/components/RevalidatePageButton";
 import { revalidateServerPage } from "@/actions/revalidate";
 import { KeyedSuspense } from "@/components/KeyedSuspense";
+import { Suspense } from "react";
 
 export default function ServerPage() {
   return (
@@ -25,13 +26,13 @@ export default function ServerPage() {
             <ServerCard index={2} />
           </KeyedSuspense>
 
-          <KeyedSuspense fallback={<CardSkeleton />}>
+          <Suspense fallback={<CardSkeleton />}>
             <ServerCard index={3} />
-          </KeyedSuspense>
+          </Suspense>
 
-          <KeyedSuspense fallback={<CardSkeleton />}>
+          <Suspense fallback={<CardSkeleton />}>
             <ServerCard index={4} />
-          </KeyedSuspense>
+          </Suspense>
         </div>
       </div>
     </div>
