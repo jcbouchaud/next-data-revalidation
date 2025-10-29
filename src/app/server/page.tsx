@@ -2,7 +2,6 @@ import { ServerCard } from "@/components/server/ServerCard";
 import { CardSkeleton } from "@/components/CardSkeleton";
 import { RevalidatePageButton } from "@/components/RevalidatePageButton";
 import { revalidateServerPage } from "@/actions/revalidate";
-import { Suspense } from "react";
 import { KeyedSuspense } from "@/components/KeyedSuspense";
 
 export default function ServerPage() {
