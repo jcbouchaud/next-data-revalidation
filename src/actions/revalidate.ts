@@ -3,7 +3,8 @@
 import { revalidateTag, revalidatePath } from "next/cache";
 
 // Revalidate individual posts by tag
-export async function revalidatePost(index: number) {
+export async function revalidatePostAction(formData: FormData): Promise<void> {
+  const index = formData.get("index") as string;
   revalidateTag(`post-${index}`);
 }
 
@@ -14,16 +15,4 @@ export async function revalidateServerPage() {
 
 export async function revalidateClientPage() {
   revalidatePath("/client");
-}
-
-export async function revalidateServerActionPage() {
-  revalidatePath("/server-action");
-}
-
-export async function revalidateServerActionClientPage() {
-  revalidatePath("/server-action-client");
-}
-
-export async function revalidateParallelPage() {
-  revalidatePath("/parallel");
 }

@@ -6,10 +6,9 @@ import { usePost } from "@/hooks/usePost";
 
 interface ClientCardProps {
   index: number;
-  onRevalidate: () => void;
 }
 
-export function ClientCard({ index, onRevalidate }: ClientCardProps) {
+export function ClientCard({ index }: ClientCardProps) {
   const { post, loading, error } = usePost(index * 2);
 
   if (loading) {
@@ -35,7 +34,7 @@ export function ClientCard({ index, onRevalidate }: ClientCardProps) {
     <Card
       title={`Card ${index}: ${post.title}`}
       description={post.body}
-      onRevalidate={onRevalidate}
+      index={index}
     />
   );
 }

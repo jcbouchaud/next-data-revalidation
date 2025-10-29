@@ -2,7 +2,7 @@ import { ServerCard } from "@/components/server/ServerCard";
 import { CardSkeleton } from "@/components/CardSkeleton";
 import { RevalidatePageButton } from "@/components/RevalidatePageButton";
 import { revalidatePost, revalidateServerPage } from "@/actions/revalidate";
-import { KeyedSuspense } from "@/components/KeyedSuspense";
+import { Suspense } from "react";
 
 export default function ServerPage() {
   return (
@@ -17,21 +17,21 @@ export default function ServerPage() {
         </p>
         <RevalidatePageButton onRevalidate={revalidateServerPage} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <KeyedSuspense fallback={<CardSkeleton />}>
-            <ServerCard index={1} onRevalidate={revalidatePost.bind(null, 1)} />
-          </KeyedSuspense>
+          <Suspense fallback={<CardSkeleton />}>
+            <ServerCard index={1} />
+          </Suspense>
 
-          <KeyedSuspense fallback={<CardSkeleton />}>
-            <ServerCard index={2} onRevalidate={revalidatePost.bind(null, 2)} />
-          </KeyedSuspense>
+          <Suspense fallback={<CardSkeleton />}>
+            <ServerCard index={2} />
+          </Suspense>
 
-          <KeyedSuspense fallback={<CardSkeleton />}>
-            <ServerCard index={3} onRevalidate={revalidatePost.bind(null, 3)} />
-          </KeyedSuspense>
+          <Suspense fallback={<CardSkeleton />}>
+            <ServerCard index={3} />
+          </Suspense>
 
-          <KeyedSuspense fallback={<CardSkeleton />}>
-            <ServerCard index={4} onRevalidate={revalidatePost.bind(null, 4)} />
-          </KeyedSuspense>
+          <Suspense fallback={<CardSkeleton />}>
+            <ServerCard index={4} />
+          </Suspense>
         </div>
       </div>
     </div>

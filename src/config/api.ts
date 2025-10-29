@@ -36,6 +36,7 @@ interface FakerTextResponse {
 }
 
 export async function fetchPost(index: number): Promise<Post> {
+  console.log("fetching post", index);
   const response = await fetch(API_ENDPOINTS.texts(index), {
     next: {
       revalidate: 10,

@@ -17,10 +17,10 @@ export default function ClientPage() {
         </p>
         <RevalidatePageButton onRevalidate={revalidateClientPage} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <ClientCard index={1} onRevalidate={revalidatePost.bind(null, 1)} />
-          <ClientCard index={2} onRevalidate={revalidatePost.bind(null, 2)} />
-          <ClientCard index={3} onRevalidate={revalidatePost.bind(null, 3)} />
-          <ClientCard index={4} onRevalidate={revalidatePost.bind(null, 4)} />
+          <ClientCard index={1} />
+          <ClientCard index={2} />
+          <ClientCard index={3} />
+          <ClientCard index={4} />
         </div>
       </div>
     </div>
