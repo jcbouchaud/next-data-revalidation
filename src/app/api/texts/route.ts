@@ -50,14 +50,6 @@ export async function GET(request: NextRequest) {
   const quantity = parseInt(searchParams.get("quantity") || "1");
   const characters = parseInt(searchParams.get("characters") || "200");
 
-  const timeoutByIndex = (index: number) =>
-    new Promise((resolve) => setTimeout(resolve, index * 1000));
-
-  for (let i = 0; i < quantity; i++) {
-    await timeoutByIndex(i);
-    console.log(`Processed item ${i + 1}`);
-  }
-
   const data = Array.from({ length: quantity }, (_, index) => ({
     title: `Story ${index + 1}: ${
       ["The Journey", "Midnight Tales", "Whispers", "Echoes", "Reflections"][
