@@ -3,10 +3,13 @@
 import { revalidateTag, revalidatePath } from "next/cache";
 
 // Revalidate individual posts by tag
-export async function revalidatePostAction(formData: FormData): Promise<void> {
+export async function revalidatePostAction(
+  _prevState: { index: number },
+  formData: FormData
+): Promise<{ index: number }> {
   const index = formData.get("index") as string;
   revalidateTag(`post-${index}`);
-  console.log("revalidated post", index);
+  return { index: parseInt(index) };
 }
 
 // Revalidate entire pages by path
